@@ -1,8 +1,8 @@
-"use client";
+// "use client";
 import RotatingText from "./components/RotatingText/RotatingText";
 import Lanyard from "./components/Lanyard/Lanyard";
 import SplashCursor from "./components/SplashCursor/SplashCursor";
-import ProfileCard from "./components/ProfileCard/ProfileCard";
+
 export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-black">
@@ -42,19 +42,8 @@ export default function Home() {
           </div>
           <div className="col-span-6">
             <div className="flex flex-col items-center justify-center h-full">
-              {/* <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} /> */}
               <div className="w-full h-full flex items-center justify-center">
-                <ProfileCard
-                  name="Adstyn"
-                  title="FrontEnd Developer"
-                  handle="junior_dev"
-                  status="Online"
-                  contactText="Contact Me"
-                  avatarUrl="/assets/profile.jpg"
-                  showUserInfo={true}
-                  enableTilt={true}
-                  onContactClick={() => console.log("Contact clicked")}
-                />
+                <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
               </div>
             </div>
           </div>
