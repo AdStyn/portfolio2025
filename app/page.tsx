@@ -149,7 +149,7 @@ export default function Home() {
         </div>
 
         <TentangSaya />
-        <div id="Keahlian" className="mt-20">
+        <div id="Keahlian" className="mt-50">
           <BlurText
             text="Keahlian Saya"
             delay={50}
