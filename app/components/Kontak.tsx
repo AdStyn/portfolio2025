@@ -25,7 +25,7 @@ const KontakSaya = () => {
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
 
-    const response = await fetch("https://formspree.io/f/mnqwdxyz", {
+    const response = await fetch("https://formspree.io/f/mblynqka", {
       method: "POST",
       body: data,
       headers: {
