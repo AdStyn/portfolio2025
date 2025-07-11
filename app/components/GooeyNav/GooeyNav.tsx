@@ -188,13 +188,14 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
           .effect.filter {
             filter: blur(7px) contrast(100) blur(0);
             mix-blend-mode: lighten;
+            display: inline-block;
           }
           .effect.filter::before {
             content: "";
             position: absolute;
             inset: -75px;
             z-index: -2;
-            background: black;
+            border-radius: inherit;
           }
           .effect.filter::after {
             content: "";

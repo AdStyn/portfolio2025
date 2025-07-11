@@ -7,11 +7,15 @@ import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
 import BlurText from "./components/BlurText/BlurText";
 import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
 import GooeyNav from "./components/GooeyNav/GooeyNav";
+import SkillScroller from "./components/SkillScroller";
+import TentangSaya from "./components/Tentang";
+import KontakSaya from "./components/Kontak";
 
 export default function Home() {
   const nav = [
     { label: "Beranda", href: "#Beranda" },
     { label: "Tentang", href: "#Tentang" },
+    { label: "Keahlian", href: "#Keahlian" },
     { label: "Kontak", href: "#Kontak" },
   ];
   return (
@@ -29,13 +33,13 @@ export default function Home() {
         ></GooeyNav>
       </div>
 
-      <SplashCursor />
+      {/* <SplashCursor /> */}
 
       {/* Main content with flex-grow */}
 
       <div id="Beranda" className="container mx-auto min-h-screen">
         <div className="grid grid-cols-12 gap-4 justify-between items-center h-full">
-          <div className="col-span-6">
+          <div className="col-span-7">
             <AnimatedContent
               distance={150}
               direction="horizontal"
@@ -48,12 +52,10 @@ export default function Home() {
               threshold={0.2}
               delay={0.5}
             >
-              <h1 className="text-7xl font-bold text-white">HALLO I 'M</h1>
-
-              <div className="flex flex-row items-center gap-6 mt-2 mb-4-4">
-                <div className="w-[300px] h-[100px]">
+              <div className="flex flex-row gap-6 mt-2 mb-4-4">
+                <div className="w-[400px] h-[120px]">
                   <TextPressure
-                    text="ADSTYN"
+                    text=" ADSTYN"
                     flex={true}
                     alpha={false}
                     stroke={false}
@@ -71,9 +73,9 @@ export default function Home() {
                     "UI/UX Design",
                     "FrontEnd Development",
                     "Web Designer",
-                    "IT Project Manager",
+                    "Freelance Developer",
                   ]}
-                  mainClassName="px-2 sm:px-2 md:px-3 text-cyan-300 py-2 sm:py-1 md:py-2  rounded-lg text-center text-xl sm:text-3xl md:text-4xl font-bold inline-flex"
+                  mainClassName="items-center px-2 sm:px-2 md:px-3 text-cyan-300 py-2 sm:py-1 md:py-2  rounded-lg text-center text-xl sm:text-3xl md:text-4xl font-bold inline-flex"
                   staggerFrom={"last"}
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
@@ -84,13 +86,36 @@ export default function Home() {
                   rotationInterval={3000}
                 />
               </div>
-              <BlurText
-                text="Saya adalah Maba Bisnis Digital yang bekerja secara hybrid sebagai Frontend Developer dan UI/UX Designer, dengan pengalaman kurang lebih 3 tahun dalam membangun antarmuka web yang responsif dan user-friendly."
-                delay={10}
-                animateBy="letters"
-                direction="top"
-                className="text-lg flex mt-4 text-center text-gray-500 h-full hover:text-gray-300 transition-colors"
-              />
+              <div className="flex flex-col h-full">
+                <BlurText
+                  text="Saya adalah Maba Bisnis Digital"
+                  delay={10}
+                  animateBy="letters"
+                  direction="top"
+                  className="text-lg flex mt-4 text-center text-gray-500 h-full hover:text-gray-300 transition-colors"
+                />
+                <BlurText
+                  text="bekerja secara hybrid sebagai Frontend Developer dan UI/UX Designer,"
+                  delay={20}
+                  animateBy="letters"
+                  direction="top"
+                  className="text-lg flex text-center text-gray-500 h-full hover:text-gray-300 transition-colors"
+                />
+                <BlurText
+                  text="dengan pengalaman lebih 3 tahun dalam membangun antarmuka web yang responsif dan user-friendly."
+                  delay={30}
+                  animateBy="letters"
+                  direction="top"
+                  className="text-lg flex text-center text-gray-500 h-full hover:text-gray-300 transition-colors"
+                />
+                <BlurText
+                  text="Saya akan selalu Update Portfolio saya dengan trend terbaru dalam desain dan pengembangan web,"
+                  delay={50}
+                  animateBy="letters"
+                  direction="top"
+                  className="text-lg flex text-center text-gray-500 h-full hover:text-gray-300 transition-colors"
+                />
+              </div>
               <div className="gap-4 mt-6 flex-row">
                 <button className="bg-cyan-300 mr-6 text-black text-xl px-4 py-2 rounded-lg text-lg font-semibold transition-colors duration-300">
                   <a
@@ -98,7 +123,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Download CV
+                    Unduh CV
                   </a>
                 </button>
                 <button className="bg-gray-300 gap-4 text-black text-xl px-4 py-2 rounded-lg text-lg font-semibold transition-colors duration-300">
@@ -107,14 +132,14 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Certificates
+                    Sertifikat
                   </a>
                 </button>
               </div>
             </AnimatedContent>
           </div>
 
-          <div className="col-span-6">
+          <div className="col-span-5">
             <div className="flex flex-col items-center justify-center h-full">
               <div className="w-full h-full flex items-center justify-center">
                 <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
@@ -123,31 +148,27 @@ export default function Home() {
           </div>
         </div>
 
-        {/* About section */}
-        <div id="Tentang" className="mt-20">
+        <TentangSaya />
+        <div id="Keahlian" className="mt-20">
           <BlurText
-            text="Tentang Saya"
+            text="Keahlian Saya"
             delay={50}
             animateBy="words"
             direction="top"
             className="text-4xl mb-8 text-center justify-center text-cyan-300 font-bold"
           />
+          <SkillScroller numCopies={48} />
         </div>
-        <div id="Kontak" className="mt-20">
-          <BlurText
-            text="Kontak Saya"
-            delay={50}
-            animateBy="words"
-            direction="top"
-            className="text-4xl mb-8 text-center justify-center text-cyan-300 font-bold"
-          />
-        </div>
+        <KontakSaya />
       </div>
 
       {/* Footer always at the bottom */}
       <footer className="h-24 text-center justify-center mt-50">
         <ScrollVelocity
-          texts={["Portfolio Adstyn", "All rights reserved ©2025"]}
+          texts={[
+            "* Portfolio Adstyn *",
+            "* Saya Akan Selalu Update Portfolio Saya ©2025 *",
+          ]}
           className="text-center custom-scroll-text text-2xl justify-center "
           numCopies={24}
         />
