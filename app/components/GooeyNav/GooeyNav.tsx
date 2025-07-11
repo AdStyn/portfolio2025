@@ -311,7 +311,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         >
           <ul
             ref={navRef}
-            className="flex gap-8 list-none p-0 px-4 m-0 relative z-[3]"
+            className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-8 sm:gap-y-0 list-none p-0 px-2 sm:px-4 m-0 relative z-[3] max-w-[90vw]"
             style={{
               color: "white",
               textShadow: "0 1px 1px hsl(205deg 30% 10% / 0.2)",

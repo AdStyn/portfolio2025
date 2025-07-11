@@ -5,6 +5,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
+import { section } from "framer-motion/client";
 import { useRef, useMemo } from "react";
 
 interface Skill {
@@ -48,27 +49,42 @@ const SkillScroller: React.FC<SkillScrollerProps> = ({ numCopies = 4 }) => {
   const scrollX = useTransform(x, (val) => `${val}px`);
 
   return (
-    <div className="overflow-hidden py-6 bg-black">
-      <motion.div
-        ref={containerRef}
-        style={{ x: scrollX }}
-        className="flex gap-8 w-max"
+    <section
+      id="Keahlian"
+      className="bg-black text-white mt-40 py-20 px-4 flex justify-center items-center flex-col"
+    >
+      {" "}
+      <motion.h2
+        className="text-4xl font-bold text-cyan-300 text-center mb-10"
+        initial={{ opacity: 0, y: -40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
       >
-        {duplicatedSkills.map((skill, i) => (
-          <div
-            key={i}
-            className="w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300"
-            title={skill.name}
-          >
-            <img
-              src={skill.src}
-              alt={skill.name}
-              className="w-full h-full object-contain"
-            />
-          </div>
-        ))}
-      </motion.div>
-    </div>
+        Keahlian Saya
+      </motion.h2>
+      <div className="overflow-hidden py-6 bg-black">
+        <motion.div
+          ref={containerRef}
+          style={{ x: scrollX }}
+          className="flex gap-8 w-max"
+        >
+          {duplicatedSkills.map((skill, i) => (
+            <div
+              key={i}
+              className="w-20 h-20 grayscale hover:grayscale-0 transition-all duration-300"
+              title={skill.name}
+            >
+              <img
+                src={skill.src}
+                alt={skill.name}
+                className="w-full h-full object-contain"
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
