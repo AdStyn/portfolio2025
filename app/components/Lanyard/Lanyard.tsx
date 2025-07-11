@@ -20,11 +20,10 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import * as THREE from "three";
 
-// replace with your own imports, see the usage snippet for details
+extend({ MeshLineGeometry, MeshLineMaterial });
+
 const cardGLB = "/assets/lanyard/card.glb";
 const lanyard = "/assets/lanyard/lanyard.png";
-
-extend({ MeshLineGeometry, MeshLineMaterial });
 
 interface LanyardProps {
   position?: [number, number, number];
@@ -87,13 +86,13 @@ export default function Lanyard({
   );
 }
 
-interface BandProps {
+function Band({
+  maxSpeed = 50,
+  minSpeed = 0,
+}: {
   maxSpeed?: number;
   minSpeed?: number;
-}
-
-function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
-  // Using "any" for refs since the exact types depend on Rapier's internals
+}) {
   const band = useRef<any>(null);
   const fixed = useRef<any>(null);
   const j1 = useRef<any>(null);
@@ -106,8 +105,8 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   const rot = new THREE.Vector3();
   const dir = new THREE.Vector3();
 
-  const segmentProps: any = {
-    type: "dynamic" as RigidBodyProps["type"],
+  const segmentProps: RigidBodyProps = {
+    type: "dynamic",
     canSleep: true,
     colliders: false,
     angularDamping: 4,
@@ -205,44 +204,21 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   return (
     <>
       <group position={[0, 4, 0]}>
-        <RigidBody
-          ref={fixed}
-          {...segmentProps}
-          type={"fixed" as RigidBodyProps["type"]}
-        />
-        <RigidBody
-          position={[0.5, 0, 0]}
-          ref={j1}
-          {...segmentProps}
-          type={"dynamic" as RigidBodyProps["type"]}
-        >
+        <RigidBody ref={fixed} {...segmentProps} type="fixed" />
+        <RigidBody ref={j1} position={[0.5, 0, 0]} {...segmentProps}>
+          <BallCollider args={[0.1]} />
+        </RigidBody>
+        <RigidBody ref={j2} position={[1, 0, 0]} {...segmentProps}>
+          <BallCollider args={[0.1]} />
+        </RigidBody>
+        <RigidBody ref={j3} position={[1.5, 0, 0]} {...segmentProps}>
           <BallCollider args={[0.1]} />
         </RigidBody>
         <RigidBody
-          position={[1, 0, 0]}
-          ref={j2}
-          {...segmentProps}
-          type={"dynamic" as RigidBodyProps["type"]}
-        >
-          <BallCollider args={[0.1]} />
-        </RigidBody>
-        <RigidBody
-          position={[1.5, 0, 0]}
-          ref={j3}
-          {...segmentProps}
-          type={"dynamic" as RigidBodyProps["type"]}
-        >
-          <BallCollider args={[0.1]} />
-        </RigidBody>
-        <RigidBody
-          position={[2, 0, 0]}
           ref={card}
+          position={[2, 0, 0]}
           {...segmentProps}
-          type={
-            dragged
-              ? ("kinematicPosition" as RigidBodyProps["type"])
-              : ("dynamic" as RigidBodyProps["type"])
-          }
+          type={dragged ? "kinematicPosition" : "dynamic"}
         >
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
@@ -283,8 +259,9 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
         </RigidBody>
       </group>
       <mesh ref={band}>
-        <meshLineGeometry />
+        <meshLineGeometry attach="geometry" points={curve.getPoints(32)} />
         <meshLineMaterial
+          attach="material"
           color="white"
           depthTest={false}
           resolution={isSmall ? [1000, 2000] : [1000, 1000]}
