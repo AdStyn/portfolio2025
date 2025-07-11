@@ -14,11 +14,9 @@ export default function Home() {
     { label: "Tentang", href: "#" },
     { label: "Kontak", href: "#" },
   ];
-
   return (
-    <div className="flex flex-col bg-black overflow-x-hidden min-h-screen relative overflow-visible">
-      {/* Navigasi */}
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-center h-[100px]">
+    <div className="flex flex-col bg-black overflow-x-hidden">
+      <div className=" fixed top-4 left-1/2 transform -translate-x-1/2 z-50 flex items-center justify-center h-[100px]">
         <GooeyNav
           items={nav}
           particleCount={15}
@@ -28,16 +26,16 @@ export default function Home() {
           animationTime={600}
           timeVariance={300}
           colors={[1, 2, 3, 1, 2, 3, 1, 4]}
-        />
+        ></GooeyNav>
       </div>
 
       <SplashCursor />
 
-      {/* Konten Utama */}
-      <div className="container mx-auto px-4 min-h-screen pt-24">
-        <div className="grid grid-cols-12 gap-4 items-center">
-          {/* Kiri */}
-          <div className="col-span-12 md:col-span-6">
+      {/* Main content with flex-grow */}
+
+      <div className="container mx-auto min-h-screen">
+        <div className="grid grid-cols-12 gap-4 justify-between items-center h-full">
+          <div className="col-span-6">
             <AnimatedContent
               distance={150}
               direction="horizontal"
@@ -50,12 +48,10 @@ export default function Home() {
               threshold={0.2}
               delay={0.5}
             >
-              <h1 className="text-5xl md:text-7xl font-bold text-white">
-                HALLO I 'M
-              </h1>
+              <h1 className="text-7xl font-bold text-white">HALLO I 'M</h1>
 
-              <div className="flex flex-wrap items-center gap-6 mt-2 mb-4">
-                <div className="w-[250px] h-[80px] md:w-[300px] md:h-[100px]">
+              <div className="flex flex-row items-center gap-6 mt-2 mb-4-4">
+                <div className="w-[300px] h-[100px]">
                   <TextPressure
                     text="ADSTYN"
                     flex={true}
@@ -77,76 +73,73 @@ export default function Home() {
                     "Web Designer",
                     "IT Project Manager",
                   ]}
-                  mainClassName="px-2 py-1 md:px-3 md:py-2 text-cyan-300 rounded-lg text-center text-xl sm:text-3xl md:text-4xl font-bold inline-flex"
+                  mainClassName="px-2 sm:px-2 md:px-3 text-cyan-300 py-2 sm:py-1 md:py-2  rounded-lg text-center text-xl sm:text-3xl md:text-4xl font-bold inline-flex"
                   staggerFrom={"last"}
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   exit={{ y: "-120%" }}
                   staggerDuration={0.025}
-                  splitLevelClassName="overflow-hidden pb-0.5"
+                  splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
                   transition={{ type: "spring", damping: 30, stiffness: 400 }}
                   rotationInterval={3000}
                 />
               </div>
-
               <BlurText
                 text="Saya adalah Maba Bisnis Digital yang bekerja secara hybrid sebagai Frontend Developer dan UI/UX Designer, dengan pengalaman kurang lebih 3 tahun dalam membangun antarmuka web yang responsif dan user-friendly."
                 delay={10}
                 animateBy="letters"
                 direction="top"
-                className="text-base md:text-lg mt-4 text-center md:text-left text-gray-500 hover:text-gray-300 transition-colors"
+                className="text-lg flex mt-4 text-center text-gray-500 h-full hover:text-gray-300 transition-colors"
               />
-
-              <div className="flex gap-4 mt-6 flex-wrap">
-                <a
-                  href="https://drive.google.com/file/d/17ms6mHNKZ5AnbdpEkEoVZKcht_pUY9O2/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-cyan-300 text-black text-lg px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-cyan-400"
-                >
-                  Download CV
-                </a>
-                <a
-                  href="https://drive.google.com/drive/u/0/folders/1cfUmDp-1TXFITd6n2uooq1jj4qANmLGC"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-300 text-black text-lg px-4 py-2 rounded-lg font-semibold transition-colors hover:bg-gray-400"
-                >
-                  Certificates
-                </a>
+              <div className="gap-4 mt-6 flex-row">
+                <button className="bg-cyan-300 mr-6 text-black text-xl px-4 py-2 rounded-lg text-lg font-semibold transition-colors duration-300">
+                  <a
+                    href="https://drive.google.com/file/d/17ms6mHNKZ5AnbdpEkEoVZKcht_pUY9O2/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download CV
+                  </a>
+                </button>
+                <button className="bg-gray-300 gap-4 text-black text-xl px-4 py-2 rounded-lg text-lg font-semibold transition-colors duration-300">
+                  <a
+                    href="https://drive.google.com/drive/u/0/folders/1cfUmDp-1TXFITd6n2uooq1jj4qANmLGC"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Certificates
+                  </a>
+                </button>
               </div>
             </AnimatedContent>
           </div>
 
-          {/* Kanan */}
-          <div className="col-span-12 md:col-span-6 mt-10 md:mt-0">
-            <div className="w-full h-full flex items-center justify-center">
-              <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+          <div className="col-span-6">
+            <div className="flex flex-col items-center justify-center h-full">
+              <div className="w-full h-full flex items-center justify-center">
+                <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Section Tentang */}
+        {/* About section */}
         <BlurText
           text="Tentang Saya"
           delay={50}
           animateBy="words"
           direction="top"
-          className="text-4xl mt-16 mb-8 text-center justify-center text-cyan-300 font-bold"
+          className="text-4xl mb-8 text-center justify-center text-cyan-300 font-bold"
         />
       </div>
 
-      {/* Footer Full Width */}
-      <footer className="w-screen text-center justify-center mt-50 bg-black py-6 overflow-hidden relative z-50">
-        <div className="w-full">
-          <ScrollVelocity
-            texts={["Portfolio Adstyn", "All rights reserved ©2025"]}
-            velocity={60}
-            numCopies={24}
-            className="text-white text-center justify-center text-2xl whitespace-nowrap"
-            scrollerClassName="flex whitespace-nowrap"
-          />
-        </div>
+      {/* Footer always at the bottom */}
+      <footer className="h-24 text-center justify-center mt-50">
+        <ScrollVelocity
+          texts={["Portfolio Adstyn", "All rights reserved ©2025"]}
+          className="text-center custom-scroll-text text-2xl justify-center "
+          numCopies={24}
+        />
       </footer>
     </div>
   );
