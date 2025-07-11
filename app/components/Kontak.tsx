@@ -45,7 +45,7 @@ const KontakSaya = () => {
   return (
     <section
       id="Kontak"
-      className="bg-black text-white py-20 px-4 flex justify-center items-center flex-col"
+      className="bg-black text-white mt-20 py-20 px-4 flex justify-center items-center flex-col"
     >
       <motion.h2
         className="text-4xl font-bold text-cyan-300 text-center mb-10"
