@@ -10,9 +10,9 @@ import GooeyNav from "./components/GooeyNav/GooeyNav";
 
 export default function Home() {
   const nav = [
-    { label: "Beranda", href: "#" },
-    { label: "Tentang", href: "#" },
-    { label: "Kontak", href: "#" },
+    { label: "Beranda", href: "#Beranda" },
+    { label: "Tentang", href: "#Tentang" },
+    { label: "Kontak", href: "#Kontak" },
   ];
   return (
     <div className="flex flex-col bg-black overflow-x-hidden">
@@ -33,7 +33,7 @@ export default function Home() {
 
       {/* Main content with flex-grow */}
 
-      <div className="container mx-auto min-h-screen">
+      <div id="Beranda" className="container mx-auto min-h-screen">
         <div className="grid grid-cols-12 gap-4 justify-between items-center h-full">
           <div className="col-span-6">
             <AnimatedContent
@@ -124,13 +124,24 @@ export default function Home() {
         </div>
 
         {/* About section */}
-        <BlurText
-          text="Tentang Saya"
-          delay={50}
-          animateBy="words"
-          direction="top"
-          className="text-4xl mb-8 text-center justify-center text-cyan-300 font-bold"
-        />
+        <div id="Tentang" className="mt-20">
+          <BlurText
+            text="Tentang Saya"
+            delay={50}
+            animateBy="words"
+            direction="top"
+            className="text-4xl mb-8 text-center justify-center text-cyan-300 font-bold"
+          />
+        </div>
+        <div id="Kontak" className="mt-20">
+          <BlurText
+            text="Kontak Saya"
+            delay={50}
+            animateBy="words"
+            direction="top"
+            className="text-4xl mb-8 text-center justify-center text-cyan-300 font-bold"
+          />
+        </div>
       </div>
 
       {/* Footer always at the bottom */}

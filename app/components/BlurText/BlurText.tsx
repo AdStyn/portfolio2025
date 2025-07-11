@@ -3,6 +3,7 @@ import { motion, Transition } from "framer-motion";
 import { useEffect, useRef, useState, useMemo } from "react";
 
 type BlurTextProps = {
+  id?: string;
   text?: string;
   delay?: number;
   className?: string;
