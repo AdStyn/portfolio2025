@@ -138,7 +138,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col h-full text-center items-start px-4 sm:px-8">
                 <BlurText
-                  text="Saya adalah Maba Bisnis Digital"
+                  text="Saya adalah Mahasiswa Bisnis Digital"
                   delay={10}
                   animateBy="letters"
                   direction="top"
