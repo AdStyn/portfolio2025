@@ -311,7 +311,7 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
         >
           <ul
             ref={navRef}
-            className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-8 sm:gap-y-0 list-none p-0 px-2 sm:px-4 m-0 relative z-[3] max-w-[90vw]"
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-y-4 sm:gap-x-8 list-none p-0 px-2 sm:px-4 m-0 relative z-[3] max-w-[90vw]"
             style={{
               color: "white",
               textShadow: "0 1px 1px hsl(205deg 30% 10% / 0.2)",
@@ -320,9 +320,10 @@ const GooeyNav: React.FC<GooeyNavProps> = ({
             {items.map((item, index) => (
               <li
                 key={index}
-                className={`py-[0.6em] px-[1em] rounded-full relative cursor-pointer transition-[background-color_color_box-shadow] duration-300 ease shadow-[0_0_0.5px_1.5px_transparent] text-white ${
-                  activeIndex === index ? "active" : ""
-                }`}
+                className={`py-[0.6em] px-[1em] rounded-full relative cursor-pointer transition-all duration-300 ease shadow-[0_0_0.5px_1.5px_transparent]
+              text-white hover:bg-white hover:text-black ${
+                activeIndex === index ? "active bg-white text-black" : ""
+              }`}
                 onClick={(e) => handleClick(e, index)}
               >
                 <a
