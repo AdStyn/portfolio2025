@@ -25,6 +25,16 @@ const KontakSaya = () => {
     const form = e.target as HTMLFormElement;
     const data = new FormData(form);
 
+    const nama = data.get("nama")?.toString().trim();
+    const telpon = data.get("telpon")?.toString().trim();
+    const email = data.get("email")?.toString().trim();
+    const pesan = data.get("pesan")?.toString().trim();
+
+    if (!nama || !telpon || !email || !pesan) {
+      alert("Semua input harus diisi!");
+      return;
+    }
+
     const response = await fetch("https://formspree.io/f/mblynqka", {
       method: "POST",
       body: data,
@@ -66,6 +76,12 @@ const KontakSaya = () => {
             placeholder: "Masukkan nama Anda",
           },
           {
+            label: "No Telepon",
+            name: "telpon",
+            type: "text",
+            placeholder: "Masukkan nomor telepon Anda",
+          },
+          {
             label: "Email",
             name: "email",
             type: "email",
@@ -98,7 +114,7 @@ const KontakSaya = () => {
         ))}
 
         <motion.div
-          custom={2}
+          custom={3}
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -121,7 +137,7 @@ const KontakSaya = () => {
         </motion.div>
 
         <motion.div
-          custom={3}
+          custom={4}
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
