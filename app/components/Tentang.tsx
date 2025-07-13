@@ -18,25 +18,75 @@ const paragraphVariants = {
 const TentangSaya = () => {
   const paragraphs = [
     <>
-      Hai, saya adalah mahasiswa{" "}
-      <span className="font-semibold text-cyan-300">Bisnis Digital</span> yang
-      memiliki ketertarikan tinggi di dunia{" "}
-      <span className="text-white">teknologi dan desain</span>. Saat ini saya
-      bekerja secara hybrid sebagai seorang{" "}
-      <span className="text-cyan-300">Frontend Developer</span> dan{" "}
-      <span className="text-cyan-300">UI/UX Designer</span>.
+      <p>
+        Hai! Saya{" "}
+        <span className="text-cyan-300 font-semibold">Ady Setiyawan</span>,
+        mahasiswa
+        <span className="text-cyan-300"> Bisnis Digital</span> yang memiliki
+        ketertarikan besar pada dunia{" "}
+        <span className="text-white">teknologi</span> dan{" "}
+        <span className="text-white">desain antarmuka</span>. Saya senang
+        menggabungkan kreativitas dengan logika untuk menciptakan solusi digital
+        yang fungsional dan menarik.
+      </p>
     </>,
     <>
-      Dengan pengalaman lebih dari 3 tahun, saya telah membangun berbagai proyek
-      web yang <span className="text-white">responsif</span>,{" "}
-      <span className="text-white">interaktif</span>, dan berfokus pada{" "}
-      <span className="text-white">pengalaman pengguna</span>.
+      <p>
+        Saat ini, saya bekerja secara{" "}
+        <span className="text-cyan-300">hybrid</span> sebagai
+        <span className="text-cyan-300"> Frontend Developer</span> dan
+        <span className="text-cyan-300"> UI/UX Designer</span>. Keahlian utama
+        saya mencakup pengembangan antarmuka web menggunakan{" "}
+        <span className="text-white">React.js</span>,
+        <span className="text-white"> Next.js</span>, dan desain dengan
+        <span className="text-white"> Figma</span> serta{" "}
+        <span className="text-white">Tailwind CSS</span>.
+      </p>
     </>,
     <>
-      Selain itu, saya aktif mengembangkan portofolio pribadi, mengikuti
-      pelatihan, serta terlibat dalam kolaborasi freelance project untuk
-      memperluas jaringan dan{" "}
-      <span className="text-white">meningkatkan skill</span>.
+      <p>
+        Saya juga berpengalaman sebagai{" "}
+        <span className="text-white">Backend Developer</span>
+        menggunakan <span className="text-white">Express.js</span>,{" "}
+        <span className="text-white">MySQL</span>, serta tools seperti{" "}
+        <span className="text-white">Postman</span> dan{" "}
+        <span className="text-white">Laragon</span>. Dengan pengalaman lebih
+        dari 3 tahun, saya telah menyelesaikan lebih dari
+        <span className="text-white"> 20 proyek freelance</span> untuk UMKM dan
+        personal brand.
+      </p>
+    </>,
+    <>
+      <p>
+        Beberapa pencapaian saya meliputi:
+        <ul className="list-disc list-inside mt-2 text-white text-left sm:text-center">
+          <li>Mengembangkan dashboard admin dan sistem kasir custom</li>
+          <li>Menjadi mentor UI/UX bagi pemula di komunitas lokal</li>
+          <li>Memenangkan lomba UI/UX tingkat kampus</li>
+        </ul>
+      </p>
+    </>,
+    <>
+      <p>
+        Saya dikenal sebagai pribadi yang{" "}
+        <span className="text-white">
+          adaptif, komunikatif, dan haus belajar
+        </span>
+        . Saya percaya bahwa kolaborasi dan feedback adalah kunci untuk
+        pertumbuhan yang konsisten, baik dalam karier maupun dalam setiap proyek
+        yang saya kerjakan.
+      </p>
+    </>,
+    <>
+      <p>
+        <span className="font-semibold text-white">
+          Ayo kolaborasi atau ngobrol bareng!
+        </span>
+        Saya terbuka untuk kesempatan magang, freelance, atau proyek kolaboratif
+        lainnya. Hubungi saya melalui{" "}
+        <span className="text-cyan-300">LinkedIn</span> atau kirim pesan
+        langsung melalui <span className="text-cyan-300">Instagram</span> saya!
+      </p>
     </>,
   ];
 
@@ -67,3 +117,4 @@ const TentangSaya = () => {
 };
 
 export default TentangSaya;
+ 

@@ -23,8 +23,11 @@ const skills: Skill[] = [
   { name: "JavaScript", src: "/assets/javascript.webp" },
   { name: "TypeScript", src: "/assets/typescript.png" },
   { name: "React", src: "/assets/react.png" },
+  { name: "Nextjs", src: "/assets/nextjs.jpeg" },
   { name: "Tailwind", src: "/assets/tailwind.png" },
   { name: "Express", src: "/assets/express.png" },
+  { name: "MySql", src: "/assets/sql.svg" },
+  { name: "Nodejs", src: "/assets/nodejs.png" },
   { name: "Figma", src: "/assets/figma.png" },
   { name: "Canva", src: "/assets/canva.png" },
 ];

@@ -102,8 +102,8 @@ export default function Home() {
               threshold={0.2}
               delay={0.5}
             >
-              <div className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start text-center sm:text-start gap-6 mt-2 mb-4">
-                <div className="w-full sm:w-[300px] md:w-[400px]">
+              <div className="flex flex-col sm:flex-row gap-6 mt-2 items-start sm:items-start justify-center sm:justify-start text-center sm:text-start">
+                <div className="w-full max-w-[330px] flex justify-center sm:justify-start">
                   <TextPressure
                     text=" ADSTYN"
                     flex={true}
@@ -118,52 +118,56 @@ export default function Home() {
                     className="text-xl"
                   />
                 </div>
-                <RotatingText
-                  texts={[
-                    "UI/UX Design",
-                    "FrontEnd Development",
-                    "Web Designer",
-                    "Freelance Developer",
-                  ]}
-                  mainClassName="items-center text-cyan-300 py-2 rounded-lg text-xl sm:text-3xl md:text-4xl font-bold"
-                  staggerFrom="last"
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  exit={{ y: "-120%" }}
-                  staggerDuration={0.025}
-                  splitLevelClassName="overflow-hidden pb-0.5"
-                  transition={{ type: "spring", damping: 30, stiffness: 400 }}
-                  rotationInterval={3000}
-                />
+
+                <div className="flex items-center justify-center sm:justify-start h-full sm:h-[120px] w-full sm:w-auto">
+                  <RotatingText
+                    texts={[
+                      "UI/UX Design",
+                      "FrontEnd Development",
+                      "Web Designer",
+                      "Freelance Developer",
+                    ]}
+                    mainClassName="text-cyan-300 text-xl sm:text-3xl md:text-4xl font-bold"
+                    staggerFrom="last"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    exit={{ y: "-120%" }}
+                    staggerDuration={0.025}
+                    splitLevelClassName="overflow-hidden pb-0.5"
+                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                    rotationInterval={3000}
+                  />
+                </div>
               </div>
-              <div className="flex flex-col h-full text-center items-start px-4 sm:px-8">
+
+              <div className="flex flex-col h-full items-center sm:items-start px-4 sm:px-8 text-center sm:text-left gap-2 sm:gap-2">
                 <BlurText
                   text="Saya adalah Mahasiswa Bisnis Digital"
                   delay={10}
                   animateBy="letters"
                   direction="top"
-                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-xl"
+                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-3xl"
                 />
                 <BlurText
-                  text="bekerja secara hybrid sebagai Frontend Developer dan UI/UX Designer,"
+                  text="yang bekerja secara hybrid sebagai Frontend Developer dan UI/UX Designer,"
                   delay={20}
                   animateBy="letters"
                   direction="top"
-                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-xl"
+                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-3xl"
                 />
                 <BlurText
-                  text="dengan pengalaman lebih 3 tahun dalam membangun antarmuka web yang responsif dan user-friendly."
+                  text="dengan pengalaman lebih dari 3 tahun dalam membangun antarmuka web yang responsif dan user-friendly."
                   delay={30}
                   animateBy="letters"
                   direction="top"
-                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-xl"
+                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-3xl"
                 />
                 <BlurText
-                  text="Saya akan selalu Update Portfolio saya dengan trend terbaru dalam desain dan pengembangan web,"
+                  text="Saya akan selalu update portfolio saya dengan tren terbaru dalam desain dan pengembangan web."
                   delay={50}
                   animateBy="letters"
                   direction="top"
-                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-xl"
+                  className="text-base sm:text-lg text-gray-400 hover:text-gray-200 transition-colors max-w-3xl"
                 />
               </div>
 
