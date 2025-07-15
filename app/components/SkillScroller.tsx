@@ -5,7 +5,6 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-import { section } from "framer-motion/client";
 import { useRef, useMemo } from "react";
 
 interface Skill {
@@ -26,7 +25,7 @@ const skills: Skill[] = [
   { name: "Nextjs", src: "/assets/nextjs.jpeg" },
   { name: "Tailwind", src: "/assets/tailwind.png" },
   { name: "Express", src: "/assets/express.png" },
-  { name: "MySql", src: "/assets/sql.svg" },
+  { name: "MySql", src: "/assets/mysql.png" },
   { name: "Nodejs", src: "/assets/nodejs.png" },
   { name: "Figma", src: "/assets/figma.png" },
   { name: "Canva", src: "/assets/canva.png" },
@@ -37,7 +36,6 @@ const SkillScroller: React.FC<SkillScrollerProps> = ({ numCopies = 4 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   let currentX = 0;
 
-  // Total pengulangan skill agar memenuhi layar
   const duplicatedSkills = useMemo(() => {
     return Array(numCopies).fill(skills).flat();
   }, [numCopies]);
