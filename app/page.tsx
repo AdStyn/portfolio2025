@@ -2,12 +2,39 @@
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import RotatingText from "./components/RotatingText/RotatingText";
+const RotatingText = dynamic(
+  () => import("./components/RotatingText/RotatingText"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
+    ),
+  }
+);
 import Lanyard from "./components/Lanyard/Lanyard";
-import TextPressure from "./components/TextPressure/TextPressure";
+const TextPressure = dynamic(
+  () => import("./components/TextPressure/TextPressure"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
+    ),
+  }
+);
 import BlurText from "./components/BlurText/BlurText";
-import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
-import SkillScroller from "./components/SkillScroller";
+const ScrollVelocity = dynamic(
+  () => import("./components/ScrollVelocity/ScrollVelocity"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
+    ),
+  }
+);
+const SkillScroller = dynamic(() => import("./components/SkillScroller"), {
+  ssr: false,
+  loading: () => <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />,
+});
 import TentangSaya from "./components/Tentang";
 import KontakSaya from "./components/Kontak";
 const AnimatedContent = dynamic(
