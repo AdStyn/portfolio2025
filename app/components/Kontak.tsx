@@ -176,7 +176,7 @@ const KontakSaya = () => {
           {
             name: "LinkedIn",
             src: "/assets/linkedin.webp",
-            href: "https://www.linkedin.com/in/ady-setiyawan-943778327/",
+            href: "https://www.linkedin.com/in/ady-setiyawan124/",
           },
         ].map((item, i) => (
           <motion.a
