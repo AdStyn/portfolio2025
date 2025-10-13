@@ -5,12 +5,20 @@ import dynamic from "next/dynamic";
 import RotatingText from "./components/RotatingText/RotatingText";
 import Lanyard from "./components/Lanyard/Lanyard";
 import TextPressure from "./components/TextPressure/TextPressure";
-import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
 import BlurText from "./components/BlurText/BlurText";
 import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
 import SkillScroller from "./components/SkillScroller";
 import TentangSaya from "./components/Tentang";
 import KontakSaya from "./components/Kontak";
+const AnimatedContent = dynamic(
+  () => import("./components/AnimatedContent/AnimatedContent"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
+    ),
+  }
+);
 
 const GooeyNav = dynamic(() => import("./components/GooeyNav/GooeyNav"), {
   ssr: false,

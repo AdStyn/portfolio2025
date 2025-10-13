@@ -46,8 +46,6 @@ body {
   display: inline-block;
   animation: marquee 20s linear infinite;
 }
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 @layer utilities {
