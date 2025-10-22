@@ -1,55 +1,20 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-const RotatingText = dynamic(
-  () => import("./components/RotatingText/RotatingText"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
-    ),
-  }
-);
+
+import { motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
+
 import Lanyard from "./components/Lanyard/Lanyard";
-const TextPressure = dynamic(
-  () => import("./components/TextPressure/TextPressure"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
-    ),
-  }
-);
+import RotatingText from "./components/RotatingText/RotatingText";
+import TextPressure from "./components/TextPressure/TextPressure";
 import BlurText from "./components/BlurText/BlurText";
-const ScrollVelocity = dynamic(
-  () => import("./components/ScrollVelocity/ScrollVelocity"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
-    ),
-  }
-);
-const SkillScroller = dynamic(() => import("./components/SkillScroller"), {
-  ssr: false,
-  loading: () => <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />,
-});
+import ScrollVelocity from "./components/ScrollVelocity/ScrollVelocity";
+import SkillScroller from "./components/SkillScroller";
 import TentangSaya from "./components/Tentang";
 import KontakSaya from "./components/Kontak";
-const AnimatedContent = dynamic(
-  () => import("./components/AnimatedContent/AnimatedContent"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="h-40 animate-pulse bg-gray-200 rounded-lg" />
-    ),
-  }
-);
-
-const GooeyNav = dynamic(() => import("./components/GooeyNav/GooeyNav"), {
-  ssr: false,
-});
+import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
+import GooeyNav from "./components/GooeyNav/GooeyNav";
 
 export default function Home() {
   const nav = [
@@ -58,8 +23,16 @@ export default function Home() {
     { label: "Keahlian", href: "#Keahlian" },
     { label: "Kontak", href: "#Kontak" },
   ];
+
   const [showMenu, setShowMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // 🔧 Loading Screen Effect
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 640);
@@ -68,9 +41,36 @@ export default function Home() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0a0a0a] text-white">
+        {/* Rotating Glow Ring */}
+        <motion.div
+          className="relative flex items-center justify-center"
+          initial={{ rotate: 0 }}
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+        >
+          <div className="h-24 w-24 rounded-full border-4 border-transparent border-t-cyan-300 shadow-[0_0_30px_#3b82f6]" />
+          <Loader2 className="absolute h-10 w-10 text-cyan-300 animate-spin" />
+        </motion.div>
+
+        {/* Loading Text */}
+        <motion.p
+          className="mt-6 text-lg font-semibold tracking-widest text-cyan-300"
+          initial={{ opacity: 3 }}
+          animate={{ opacity: [3, 1, 3] }}
+          transition={{ repeat: Infinity, duration: 5 }}
+        >
+          Loading Portfolio...
+        </motion.p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col bg-black overflow-x-hidden">
-      {/* Navbar untuk Desktop */}
+      {/* Navbar Desktop */}
       <div className="hidden sm:flex fixed top-4 left-1/2 transform -translate-x-1/2 z-50 items-center justify-center h-[100px] w-full max-w-[90%] px-2">
         <GooeyNav
           items={nav}
@@ -84,7 +84,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Navbar untuk Mobile */}
+      {/* Navbar Mobile */}
       <div className="fixed top-4 left-4 z-[60] sm:hidden">
         <button
           onClick={() => setShowMenu(!showMenu)}
@@ -107,13 +107,14 @@ export default function Home() {
           </svg>
         </button>
       </div>
+
       {showMenu && (
         <div className="fixed top-16 left-4 z-50 flex flex-col bg-black/90 backdrop-blur-lg p-4 rounded-xl shadow-xl space-y-4 w-[200px] border border-white/10 sm:hidden animate-slide-in">
           {nav.map((item, index) => (
             <a
               key={index}
               href={item.href}
-              onClick={() => setShowMenu(false)} // Tutup setelah klik
+              onClick={() => setShowMenu(false)}
               className="text-white text-base font-medium hover:text-cyan-300 transition"
             >
               {item.label}
@@ -122,8 +123,10 @@ export default function Home() {
         </div>
       )}
 
+      {/* Beranda Section */}
       <div id="Beranda" className="container mx-auto min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 justify-between items-center h-full">
+          {/* Kiri: Teks */}
           <div className="md:col-span-7 order-2 md:order-1">
             <AnimatedContent
               distance={150}
@@ -141,12 +144,12 @@ export default function Home() {
                 <div className="w-full max-w-[330px] flex justify-center sm:justify-start">
                   <TextPressure
                     text=" ADSTYN"
-                    flex={true}
+                    flex
                     alpha={false}
                     stroke={false}
-                    width={true}
-                    weight={true}
-                    italic={true}
+                    width
+                    weight
+                    italic
                     textColor="#ffffff"
                     strokeColor="#ff0000"
                     minFontSize={5}
@@ -226,12 +229,15 @@ export default function Home() {
               </div>
             </AnimatedContent>
           </div>
+
+          {/* Kanan: Model 3D */}
           <div className="md:col-span-5 order-1 md:order-2">
             <div className="flex items-center justify-center">
               <Lanyard position={[0, 0, 15]} gravity={[0, -40, 0]} />
             </div>
           </div>
         </div>
+
         <TentangSaya />
         <SkillScroller numCopies={48} />
         <KontakSaya />
