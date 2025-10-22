@@ -163,7 +163,7 @@ export default function Home() {
                       "UI/UX Design",
                       "FrontEnd Development",
                       "Web Designer",
-                      "Freelance Developer",
+                      "Creator Content",
                     ]}
                     mainClassName="text-cyan-300 text-xl sm:text-3xl md:text-4xl font-bold"
                     staggerFrom="last"
