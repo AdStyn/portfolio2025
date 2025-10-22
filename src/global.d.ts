@@ -2,6 +2,12 @@
 
 declare module "*.glb";
 declare module "*.png";
+declare module "*.scss";
+declare module "*.sass";
+declare module "*.css" {
+  const content: { [className: string]: string };
+  export default content;
+}
 
 declare module "meshline" {
   export const MeshLineGeometry: any;
