@@ -166,7 +166,7 @@ const KontakSaya = () => {
           {
             name: "TikTok",
             src: "/assets/tiktok.png",
-            href: "https://www.tiktok.com/@adstynbusines",
+            href: "https://www.tiktok.com/@ady_setiyawan",
           },
           {
             name: "GitHub",
