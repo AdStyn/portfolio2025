@@ -236,7 +236,7 @@ export default function Home() {
         <ScrollVelocity
           texts={[
             "* Portfolio Adstyn *",
-            "* Saya Akan Selalu Update Portfolio Saya ©2025 *",
+            "* Saya Akan Selalu Update Portfolio Saya ©2026 *",
           ]}
           className="text-center text-2xl justify-center"
           numCopies={24}
